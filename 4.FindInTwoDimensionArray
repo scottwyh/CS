@@ -1,0 +1,21 @@
+# -*- coding:utf-8 -*-
+'''
+剑指Offer:4.二维数组的查找
+'''
+
+class Solution:
+    # array 二维数组
+    def Find(self,target,array):
+        # 判断数组是否为空
+        if len(array) == 0:
+            return False
+        row = 0
+        column = len(array[0])-1
+        while(row <= len(array)-1 and column >= 0):
+            if array[row][column] == target:
+                return True
+            elif array[row][column] > target:
+                column -= 1
+            elif array[row][column] < target:
+                row += 1
+        return False
