@@ -6,3 +6,24 @@ class Solution:
     # s为源字符串
     def replaceSpace(self,s):
         return s.replace(' ','%20')
+        
+'''
+方法2
+# -*- coding:utf-8 -*-
+class Solution:
+    # str 源字符串
+    def replaceSpace(self,str):
+        if(len(str) == 0):
+            return ''
+        else:
+            i = 0
+            newList = []
+            while(i < len(str)):
+                if(str[i] == " "):
+                    newList.append("%20")
+                else:
+                    newList.append(str[i])
+                i += 1
+            res = "".join(newList)
+            return res
+'''
