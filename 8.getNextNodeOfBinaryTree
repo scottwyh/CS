@@ -14,8 +14,8 @@ class Solution:
         if pNode.right:
             pNode = pNode.right
             while(pNode.left):
-                pNode = pNode.left
-            return  pNode
+                pNext = pNode.left
+            return  pNext
         # 如果当前节点有父节点且当前节点是父节点的左子节点，则下一个节点即为父节点
         elif pNode.next and pNode.next.left == pNode:
             return  pNode.next
