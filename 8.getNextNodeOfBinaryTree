@@ -1,0 +1,27 @@
+# -*- coding:utf-8 -*-
+# class TreeLinkNode:
+#     def __init__(self, x):
+#         self.val = x
+#         self.left = None
+#         self.right = None
+#         self.next = None
+class Solution:
+    def GetNext(self, pNode):
+        # 输入的是一个空节点
+        if pNode is None:
+            return None
+        # 如果输入节点有右子树，则下一个节点是当前节点右子树中最左节点
+        if pNode.right:
+            pNode = pNode.right
+            while(pNode.left):
+                pNode = pNode.left
+            return  pNode
+        # 如果当前节点有父节点且当前节点是父节点的左子节点，则下一个节点即为父节点
+        elif pNode.next and pNode.next.left == pNode:
+            return  pNode.next
+        # 如果当前节点有父节点且当前节点是父节点的右子节点，那么向上遍历，直到找到一个是它父节点左子节点的节点
+        # 反之终止时当前节点没有父节点，说明当前节点位于根节点的右子树，且没有下一节点
+        else:
+            while(pNode.next and pNode.next.left != pNode):#pNode.next指的是当前节点的父节点（因为包含指向父节点的指针）
+                 pNode = pNode.next
+            return pNode.next
