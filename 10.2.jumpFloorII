@@ -1,0 +1,12 @@
+# -*- coding:utf-8 -*-
+#变态跳台阶
+class Solution:
+    def jumpFloorII(self, number):
+        # 找规律 1,2,4,8,16......
+        if number == 1:
+            return 1
+        if number > 1:
+            res = 1
+            for i in range(2,number+1):
+                res = res * 2
+            return res
