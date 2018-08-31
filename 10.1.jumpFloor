@@ -1,4 +1,5 @@
 # -*- coding:utf-8 -*-
+#跳台阶
 class Solution:
     def jumpFloor(self, number):
         if number == 1:
