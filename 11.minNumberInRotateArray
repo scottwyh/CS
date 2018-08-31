@@ -8,3 +8,36 @@ class Solution:
             if rotateArray[i] > rotateArray[i+1]:
                 temp = rotateArray[i+1]
         return temp
+        
+        
+'''
+# -*- coding:utf-8 -*-
+# 二分查找的变形，注意到旋转数组的首元素肯定不小于旋转数组的尾元素，设置中间点。
+# 如果中间点大于首元素，说明最小数字在后面一半，如果中间点小于尾元素，说明最小数字在前一半。依次循环。
+# 同时，当一次循环中首元素小于尾元素，说明最小值就是首元素。但是当首元素等于尾元素等于中间值，只能在
+# 这个区域顺序查找。
+class Solution:
+    def minNumberInRotateArray(self, rotateArray):
+        if len(rotateArray) == 0:
+            return 0
+        front = 0
+        rear = len(rotateArray)-1
+        minval = rotateArray[0]
+        if rotateArray[front] < rotateArray[rear]:
+            return rotateArray[front]
+        else:
+            while(rear-front)>1:
+                mid = (front + rear)//2
+                if rotateArray[mid] > rotateArray[rear]:
+                    front = mid
+                elif rotateArray[mid] < rotateArray[front]:
+                    rear = mid
+                elif rotateArray[mid] == rotateArray[front] and rotateArray[front] == rotateArray[rear]:
+                    for i in range(1,len(rotateArray)):
+                        if rotateArray[i] < minval:
+                            minval = rotateArray[i]
+                            rear = i
+            minval = rotateArray[rear]
+            return minval
+'''
+
