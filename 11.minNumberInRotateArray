@@ -1,0 +1,10 @@
+# -*- coding:utf-8 -*-
+# 遍历法
+class Solution:
+    def minNumberInRotateArray(self, rotateArray):
+        if len(rotateArray) == 0:
+            return 0
+        for i in range(len(rotateArray)-1):
+            if rotateArray[i] > rotateArray[i+1]:
+                temp = rotateArray[i+1]
+        return temp
