@@ -1,0 +1,11 @@
+# -*- coding:utf-8 -*-
+class Solution:
+    def jumpFloor(self, number):
+        if number == 1:
+            return 1
+        if number == 2:
+            return 2
+        numlist = [1,2]
+        for i in range(3,number+1):
+            numlist.append(numlist[-1]+numlist[-2])
+        return numlist.pop()
